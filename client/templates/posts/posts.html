@@ -1,0 +1,17 @@
+<template name="posts">
+	{{#each posts}}
+		<div class="row post">
+			<div class="col-md-12">
+				{{> postData}}
+			</div>
+		</div>
+	{{else}}
+		<p>No Posts</p>
+	{{/each}}
+</template>
+
+<template name="postData">
+	<p>{{body}}</p>
+	<hr>
+	<small>Posted at {{formattedDate}}</small>
+</template>

@@ -1,0 +1,60 @@
+<template name="dashboard">
+	<div class="row">
+		<div class="col-lg-12">
+			{{> flashMessages}}
+		</div>
+	</div>
+	<div class="row">
+		{{> insertForm}}
+		<div class="col-md-8">
+			{{#each posts}}
+				<div class="row">
+					<div class="col-md-8 user-post">
+						{{> userPostData}}
+					</div>
+				</div>
+			{{else}}
+			<p>No Posts</p>
+			{{/each}}
+			{{> paginationNav}}
+		</div>
+	</div>
+</template>
+
+<template name="insertForm">
+	<div class="col-md-4">
+		<form action="" class="horizontal-form" id="insertForm">
+			<div class="form-group">
+				<label for="">Say Something:</label>
+				<textarea name="postBody" id="" class="form-control"  rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Send</button>
+		</form>
+	</div>
+</template>
+
+<template name="userPostData">
+	<div class="user-post-body">
+		<p>{{body}}</p>
+	</div>
+	<div class="meta-wrap">
+		<small>Posted at {{formattedDate}}</small>
+	</div>
+</template>
+
+<template name="paginationNav">
+	<nav>
+		<ul class="pager">
+			<li class="{{prevPageClass}}">
+				<a href="{{prevPage}}" id="prevPage">
+					<span aria-hidden="true">&larr;</span> Previous
+				</a>
+			</li>
+			<li class="{{nextPageClass}}">
+				<a href="{{nextPage}}" id="nextPage">
+					Next <span aria-hidden="true">&rarr;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+</template>
